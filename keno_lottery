@@ -1,0 +1,34 @@
+import random
+import time
+
+play = "Yes"
+
+taken = []
+result = []
+
+while play == "Yes":
+    for i in range(10):
+        taken.append(int(input("Enter your numbers "+str(i+1)+": ")))
+        result.append(random.randint(1,50))
+    count = 0
+    print("Your Numbers: "+str(taken))
+
+
+    time_count = 10
+    for t in range(time_count, 0, -1):
+        print('%d Seconds left' % t)
+        time.sleep(1)
+    print('Start!!!')
+
+
+    for z in taken:
+        for j in result:
+            if z == j:
+                count = count + 1
+    print("Your lucky number(s) is: "+str(count))
+    print("Result:")
+    for i in result:
+        print(i)
+    taken.clear()
+    result.clear()
+    play = input("Do you want to try again? (Yes/No) ")
