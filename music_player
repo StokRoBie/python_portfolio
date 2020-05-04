@@ -1,0 +1,24 @@
+from pygame import mixer
+
+mixer.init()
+mixer.music.load(".mp3")    # insert name of your song 
+mixer.music.set_volume(1)
+mixer.music.play()  # loop
+
+while True:
+    print("Press 'R' for resume")
+    print("Press 'P' for pause")
+    print("Press 'V' for set volume")
+    print("Press 'S' for stop")
+
+    ch = input("['R', 'P', 'V', 'S']>>>")
+    if ch == 'R':
+        mixer.music.unpause()
+    elif ch == 'P':
+        mixer.music.pause()
+    elif ch == 'V':
+        V = float(input("Enter Volume: "))
+        mixer.music.set_volume(V)
+    elif ch == 'e':
+        mixer.music.stop()
+        break
