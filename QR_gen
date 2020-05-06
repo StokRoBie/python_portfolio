@@ -1,0 +1,8 @@
+import pyqrcode
+
+data = 'google.com'
+content = pyqrcode.create(data)
+content.svg("example_name1.svg", scale=20)
+
+# saving
+content.png("example_name2.png")
