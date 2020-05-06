@@ -1,0 +1,19 @@
+import time
+import winsound
+
+def alarm():
+    try:
+        time_alarm = list(map(int, input("Enter time in hour-minute-second(Without '-')\n").split()))
+        if len(time_alarm)==3:
+            total_second=time_alarm[0]*60*60+time_alarm[1]*60+time_alarm[2]
+            time.sleep(total_second)
+            frequency = 2600 # in hertz
+            duration = 1000 # in ms(1000 ms == 1 sec)
+            winsound.Beep(frequency,duration)
+        else:
+            print("ERROR. Please retry again(syntax error)\n")
+            alarm()
+    except Exception as e:
+        print("This is exception\n", e,"So you are some kind of dumb, try again")
+        alarm()
+alarm()
