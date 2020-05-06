@@ -1,0 +1,17 @@
+import speedtest
+ns = speedtest.Speedtest()
+option = int(input('''What speed do you want to test
+1) Download speed
+2) Upload speed
+3) Ping
+Your Choice: '''))
+if option == 1:
+    print(ns.download())
+elif option == 2:
+    print(ns.upload())
+elif option == 3:
+    server_name = []
+    ns.get_servers(server_name)
+    print(ns.results.ping)
+else:
+    print("SYNTAX_ERROR! PLEASE_TRY_AGAIN! ")
