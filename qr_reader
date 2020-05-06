@@ -1,0 +1,11 @@
+#pip install pypng
+#pip install pyqrcode
+#pip install pillow
+#pip install pyzbar
+
+
+from pyzbar.pyzbar import decode
+from PIL import Image
+
+d = decode(Image.open("1_PNniLVIC_Hc7gNIxjvWPWg.png")) # name_of_file
+print(d[0].data.decode)
