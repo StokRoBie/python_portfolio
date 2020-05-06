@@ -1,0 +1,22 @@
+# pip install covid
+# pip install matplotlib
+from covid import Covid
+import matplotlib.pyplot as pyplot
+
+covid = Covid(source='worldometers')
+covid.get_data()
+country = input("Enter your country: ")
+
+data = covid.get_status_by_country_name(country)
+
+cadr = {
+    key: data[key]
+    for key in data.keys() & {'Confirmed', 'Active', 'Deaths', 'Recovered'}
+}
+k = list(cadr.keys())
+v = list(cadr.values())
+print(cadr)
+
+pyplot.title(country)
+pyplot.bar(range(len(cadr)), v, tick_label=k)
+pyplot.show()
